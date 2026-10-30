@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanessa Lessa // Portfólio Orbital</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Canvas para o fundo de partículas estelares -->
+    <canvas id="espaco"></canvas>
+
+    <div class="container-principal">
+        
+        <!-- Cabeçalho / HUD de Navegação -->
+        <header class="hud-header">
+            <div class="logo-area">
+                <span class="status-luz"></span>
+                <h1>VANESSA LESSA // COMANDO</h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#inicio">INÍCIO</a></li>
+                    <li><a href="#telemetria">TELEMETRIA</a></li>
+                    <li><a href="#missoes">MISSÕES</a></li>
+                    <li><a href="#sinal">COMUNICAÇÃO</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Seção Hero / Início -->
+        
+<section id="inicio" class="painel-vidro hero-section">
+
+    <div class="perfil-container">
+
+        <div class="foto-perfil">
+            <img
+    src="./imagens/vanessa.jpeg"
+    alt="Foto de perfil de Vanessa Lessa"
+    onerror="this.style.display='none'; console.log('Imagem não encontrada!')"
+>
+        </div>
+
+        <div class="perfil-informacoes">
+
+            <div class="badge-setor">
+                SETOR FRONTEND // DESIGN & CODE
+            </div>
+
+            <h2>CENTRAL DE COMANDO ORBITAL</h2>
+
+            <p class="tagline">
+                Vanessa Lessa da Cunha Santana
+            </p>
+
+            <p class="descricao">
+                Exploradora web, cursando Análise e Desenvolvimento
+                de Sistemas (UNIT) e formada em Design pela UFPE (2012).
+                Unifico a sensibilidade visual e a engenharia de
+                software para criar experiências digitais futuristas.
+            </p>
+
+            <div class="botoes-acao">
+                <a href="#missoes" class="btn-primario">
+                    Ver Missões
+                </a>
+
+                <a href="#sinal" class="btn-secundario">
+                    Transmitir Sinal
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+        <!-- Seção de Telemetria (Formação) -->
+        <section id="telemetria" class="painel-vidro">
+            <div class="cabecalho-secao">
+                <h2>TELEMETRIA ACADÊMICA</h2>
+                <span class="codigo-secao">SYS_EDU // 01</span>
+            </div>
+            <div class="grid-cards">
+                <div class="card-item">
+                    <span class="tag-status ativo">EM CURSO</span>
+                    <h3>Análise e Desenvolvimento de Sistemas</h3>
+                    <p class="instituicao">UNIT — Universidade Tiradentes</p>
+                </div>
+                <div class="card-item">
+                    <span class="tag-status concluido">CONCLUÍDO (2012)</span>
+                    <h3>Bacharelado em Design</h3>
+                    <p class="instituicao">UFPE — Universidade Federal de Pernambuco</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Missões (Projetos) -->
+        <section id="missoes" class="painel-vidro">
+            <div class="cabecalho-secao">
+                <h2>MISSÕES DESENVOLVIDAS</h2>
+                <span class="codigo-secao">SYS_PROJ // 02</span>
+            </div>
+            <div class="grid-cards">
+                <div class="card-item">
+                    <h3>SISTEMA DE ELEVADOR INTELIGENTE</h3>
+                    <p>Controlo de tráfego, limites de andares e gestão de capacidade em Python com POO.</p>
+                    <span class="tecnologia-tag">Python / POO</span>
+                </div>
+                <div class="card-item">
+                    <h3>SIMULADOR DE VEÍCULOS</h3>
+                    <p>Lógica de aceleração, travagem e consumo estruturada em classes orientadas a objetos.</p>
+                    <span class="tecnologia-tag">Python</span>
+                </div>
+                <div class="card-item">
+                    <h3>BASE ESPACIAL FRONT-END</h3>
+                    <p>Portfólio com glassmorphism avançado, animação de partículas em Canvas e layout modular.</p>
+                    <span class="tecnologia-tag">HTML5 / CSS3 / JS</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Conexões Externas -->
+        <section class="painel-vidro">
+            <div class="cabecalho-secao">
+                <h2>CANAIS DE REDE</h2>
+                <span class="codigo-secao">SYS_NET // 03</span>
+            </div>
+            <div class="links-sociais">
+                <a href="https://github.com/vanzsanz" target="_blank" class="link-card">
+                    <strong>GitHub</strong>
+                    <span>vanzsanz</span>
+                </a>
+                <a href="https://www.linkedin.com/in/vanessa-rodrigues-07869920b/" target="_blank" class="link-card">
+                    <strong>LinkedIn</strong>
+                    <span>Vanessa Rodrigues</span>
+                </a>
+                <a href="mailto:vanessa.pe@gmail.com" class="link-card">
+                    <strong>E-mail</strong>
+                    <span>vanessa.pe@gmail.com</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Seção de Contato (Sinal) -->
+        <section id="sinal" class="painel-vidro">
+            <div class="cabecalho-secao">
+                <h2>ESTAÇÃO DE SINAL</h2>
+                <span class="codigo-secao">COM_FREQ // 04</span>
+            </div>
+            <form id="formulario-contato" class="form-espacial">
+                <div class="grupo-input">
+                    <input type="text" id="nome" placeholder="Identificação do Tripulante (Nome)" required>
+                </div>
+                <div class="grupo-input">
+                    <input type="email" id="email" placeholder="Frequência de Retorno (E-mail)" required>
+                </div>
+                <div class="grupo-input">
+                    <textarea id="mensagem" placeholder="Insira a mensagem de transmissão cósmica..." rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn-primario">Transmitir Sinal</button>
+            </form>
+        </section>
+
+        <footer class="rodape-espacial">
+            <p>&copy; 2026 Vanessa Lessa da Cunha Santana. Todos os sistemas operacionais ativos.</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
