@@ -555,3 +555,89 @@ textarea:focus-visible {
         scroll-behavior: auto !important;
     }
 }
+
+
+/* SEÇÃO DE HABILIDADES / SKILLS */
+
+.skills-intro {
+    color: #94a3b8;
+    line-height: 1.7;
+    margin: 0 0 25px;
+    max-width: 760px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.skill-card {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 14px;
+    padding: 20px;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.skill-card:hover {
+    border-color: #38bdf8;
+    transform: translateY(-3px);
+}
+
+.skill-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.skill-topo h3 {
+    color: #f1f5f9;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.skill-topo span {
+    color: #38bdf8;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.skill-card p {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 10px 0 14px;
+}
+
+.skill-trilho {
+    width: 100%;
+    height: 9px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: rgba(100, 116, 139, 0.25);
+}
+
+.skill-trilho span {
+    display: block;
+    width: var(--nivel);
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #0284c7, #38bdf8);
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.45);
+}
+
+.skill-card small {
+    display: block;
+    color: #64748b;
+    font-size: 0.72rem;
+    margin-top: 10px;
+    letter-spacing: 0.4px;
+}
+
+@media (max-width: 700px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
