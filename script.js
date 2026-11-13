@@ -1,65 +1,88 @@
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-    const formulario = document.getElementById('formulario-contato');
+    // FORMULÁRIO DE CONTATO
+    const formulario = document.getElementById("formulario-contato");
 
-    formulario.addEventListener('submit', async (event) => {
+    if (formulario) {
+        formulario.addEventListener("submit", async (event) => {
+            event.preventDefault();
 
-        event.preventDefault();
+            const nome = formulario.querySelector('[name="nome"]').value.trim();
+            const email = formulario.querySelector('[name="email"]').value.trim();
+            const mensagem = formulario.querySelector('[name="mensagem"]').value.trim();
 
-        const botao = formulario.querySelector('button[type="submit"]');
+            const botao = formulario.querySelector('button[type="submit"]');
 
-        const dados = {
-            nome: document.getElementById('nome').value.trim(),
-            email: document.getElementById('email').value.trim(),
-            mensagem: document.getElementById('mensagem').value.trim()
-        };
-
-        if (!dados.nome || !dados.email || !dados.mensagem) {
-            alert('Preencha todos os campos!');
-            return;
-        }
-
-        botao.disabled = true;
-        botao.textContent = 'Transmitindo sinal...';
-
-        try {
-
-            const resposta = await fetch(
-                'http://localhost:3000/enviar-sinal',
-                {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(dados)
-                }
-            );
-
-            const resultado = await resposta.json();
-
-            if (!resposta.ok || !resultado.sucesso) {
-                throw new Error(
-                    resultado.mensagem || 'Erro ao enviar mensagem.'
-                );
+            if (!nome || !email || !mensagem) {
+                alert("Preencha todos os campos!");
+                return;
             }
 
-            alert('✅ Mensagem enviada com sucesso!');
-            formulario.reset();
+            botao.disabled = true;
+            botao.textContent = "Enviando mensagem...";
 
-        } catch (erro) {
+            try {
+                const resposta = await fetch("http://localhost:3000/enviar-sinal", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        nome,
+                        email,
+                        mensagem
+                    })
+                });
 
-            console.error('Erro no envio:', erro);
+                const resultado = await resposta.json();
 
-            alert('❌ Falha na transmissão: ' + erro.message);
+                if (!resposta.ok || !resultado.sucesso) {
+                    throw new Error(resultado.mensagem || "Erro ao enviar.");
+                }
 
-        } finally {
+                alert("Mensagem enviada com sucesso!");
+                formulario.reset();
 
-            botao.disabled = false;
-            botao.textContent = 'Transmitir Sinal';
+            } catch (erro) {
+                console.error("Erro ao enviar mensagem:", erro);
+                alert("Não foi possível enviar a mensagem. Tente novamente.");
 
-        }
+            } finally {
+                botao.disabled = false;
+                botao.textContent = "Transmitir Sinal";
+            }
+        });
+    }
 
+    // ANIMAÇÃO DE ENTRADA DOS ELEMENTOS
+    const elementos = document.querySelectorAll(".reveal");
+
+    const observador = new IntersectionObserver((entradas) => {
+        entradas.forEach((entrada) => {
+            if (entrada.isIntersecting) {
+                entrada.target.classList.add("active");
+                observador.unobserve(entrada.target);
+            }
+        });
+    });
+
+    elementos.forEach((elemento) => {
+        observador.observe(elemento);
+    });
+
+    // NAVEGAÇÃO SUAVE ENTRE AS SEÇÕES
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (event) => {
+            const destino = document.querySelector(link.getAttribute("href"));
+
+            if (destino) {
+                event.preventDefault();
+                destino.scrollIntoView({
+                    behavior: "smooth"
+                });
+            }
+        });
     });
 
 });
