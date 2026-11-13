@@ -37,12 +37,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const resultado = await resposta.json();
 
-                if (!resposta.ok || !resultado.sucesso) {
-                    throw new Error(resultado.mensagem || "Erro ao enviar.");
-                }
+                if (!resposta.ok || !resultado.success) {
+                     throw new Error(
+                 resultado.message || 'Erro ao enviar mensagem.'
+    );
+}
 
-                alert("Mensagem enviada com sucesso!");
-                formulario.reset();
+alert('Mensagem enviada com sucesso!');
+formulario.reset();
 
             } catch (erro) {
                 console.error("Erro ao enviar mensagem:", erro);
